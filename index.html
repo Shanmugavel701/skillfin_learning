@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Skillfin Learning</title>
+   <link rel="icon" type="image/x-icon" href="data:image/png;base64,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">
+
+   <!-- swiper css link  -->
+   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+   
+<!-- header section starts  -->
+
+<header class="header">
+
+   <section class="flex">
+
+      <a href="#home" class="logo"><span style="color: rgb(255, 0, 0);">Skillfin</span><span style="color: rgb(0, 255, 0);"> Learning</span></a>
+
+      <nav class="navbar">
+         <a href="#home">home</a>
+         <a href="#about">about</a>
+         <a href="#courses">courses</a>
+         <a href="#teachers">teachers</a>
+         <a href="#reviews">reviews</a>
+         <a href="#contact"><span style="color:red ;">contact</span></a>
+      </nav>
+
+      <div id="menu-btn" class="fas fa-bars"></div>
+
+   </section>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+   <div class="row">
+
+      <div class="content">
+         <h3>online <span>education</span></h3>
+         <a href="#contact" class="btn">contact us</a>
+      </div>
+
+      <div class="image">
+         <img src="images/homg-img.svg" alt="">
+      </div>
+
+   </div>
+
+</section>
+
+<!-- home section ends -->
+
+<!-- couter section stars  -->
+
+<section class="count">
+
+   <div class="box-container">
+
+      <div class="box">
+         <i class="fas fa-graduation-cap"></i>
+         <div class="content">
+            <h3>150+</h3>
+            <p>courses</p>
+         </div>
+      </div>
+
+      <div class="box">
+         <i class="fas fa-user-graduate"></i>
+         <div class="content">
+            <h3>1300+</h3>
+            <p>students</p>
+         </div>
+      </div>
+
+      <div class="box">
+         <i class="fas fa-chalkboard-user"></i>
+         <div class="content">
+            <h3>80+</h3>
+            <p>teachers</p>
+         </div>
+      </div>
+
+      <div class="box">
+         <i class="fas fa-face-smile"></i>
+         <div class="content">
+            <h3>100%</h3>
+            <p>satisfaction</p>
+         </div>
+      </div>
+
+   </div>
+
+</section>
+
+<!-- couter section ends -->
+
+<!-- about section starts  -->
+
+<section class="about" id="about">
+
+   <div class="row">
+
+      <div class="image">
+         <img src="images/about-img.svg" alt="">
+      </div>
+
+      <div class="content">
+         <h3>why choose us?</h3>
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quibusdam magni error, aut enim rerum?</p>
+         <a href="#contact" class="btn">contact us</a>
+      </div>
+
+   </div>
+
+</section>
+
+<!-- about section ends -->
+
+<!-- courses section starts  -->
+
+<section class="courses" id="courses">
+
+   <h1 class="heading">our <span> Popular courses</span></h1>
+
+   <div class="swiper course-slider">
+
+      <div class="swiper-wrapper">
+
+         <div class="swiper-slide slide">
+            <img src="images/course-1.svg" alt="">
+            <h3>web development</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique, repellat!</p>
+         </div>
+
+         <div class="swiper-slide slide">
+            <img src="images/course-2.svg" alt="">
+            <h3>digital marketing</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique, repellat!</p>
+         </div>
+
+         <div class="swiper-slide slide">
+            <img src="images/course-3.svg" alt="">
+            <h3>science and biology</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique, repellat!</p>
+         </div>
+
+         <div class="swiper-slide slide">
+            <img src="images/course-4.svg" alt="">
+            <h3>graphic design</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique, repellat!</p>
+         </div>
+
+         <div class="swiper-slide slide">
+            <img src="images/course-5.svg" alt="">
+            <h3>teaching</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique, repellat!</p>
+         </div>
+
+         <div class="swiper-slide slide">
+            <img src="images/course-6.svg" alt="">
+            <h3>engineering</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique, repellat!</p>
+         </div>
+
+      </div>
+
+      <div class="swiper-pagination"></div>
+
+   </div>
+
+</section>
+
+<!-- courses section ends -->
+
+<!-- teachers section starts  -->
+
+<section class="teachers" id="teachers">
+
+   <h1 class="heading">expert <span>tutors</span></h1>
+
+   <div class="swiper teachers-slider">
+
+      <div class="swiper-wrapper">
+
+         <div class="swiper-slide slide">
+            <img src="images/tutor-1.png" alt="">
+            <div class="share">
+               <a href="#" class="fab fa-facebook-f"></a>
+               <a href="#" class="fab fa-twitter"></a>
+               <a href="#" class="fab fa-instagram"></a>
+               <a href="#" class="fab fa-linkedin"></a>
+            </div>
+            <h3>john deo</h3>
+         </div>
+         
+         <div class="swiper-slide slide">
+            <img src="images/tutor-2.png" alt="">
+            <div class="share">
+               <a href="#" class="fab fa-facebook-f"></a>
+               <a href="#" class="fab fa-twitter"></a>
+               <a href="#" class="fab fa-instagram"></a>
+               <a href="#" class="fab fa-linkedin"></a>
+            </div>
+            <h3>john deo</h3>
+         </div>
+
+         <div class="swiper-slide slide">
+            <img src="images/tutor-3.png" alt="">
+            <div class="share">
+               <a href="#" class="fab fa-facebook-f"></a>
+               <a href="#" class="fab fa-twitter"></a>
+               <a href="#" class="fab fa-instagram"></a>
+               <a href="#" class="fab fa-linkedin"></a>
+            </div>
+            <h3>john deo</h3>
+         </div>
+
+         <div class="swiper-slide slide">
+            <img src="images/tutor-4.png" alt="">
+            <div class="share">
+               <a href="#" class="fab fa-facebook-f"></a>
+               <a href="#" class="fab fa-twitter"></a>
+               <a href="#" class="fab fa-instagram"></a>
+               <a href="#" class="fab fa-linkedin"></a>
+            </div>
+            <h3>john deo</h3>
+         </div>
+
+         <div class="swiper-slide slide">
+            <img src="images/tutor-5.png" alt="">
+            <div class="share">
+               <a href="#" class="fab fa-facebook-f"></a>
+               <a href="#" class="fab fa-twitter"></a>
+               <a href="#" class="fab fa-instagram"></a>
+               <a href="#" class="fab fa-linkedin"></a>
+            </div>
+            <h3>john deo</h3>
+         </div>
+
+         <div class="swiper-slide slide">
+            <img src="images/tutor-6.png" alt="">
+            <div class="share">
+               <a href="#" class="fab fa-facebook-f"></a>
+               <a href="#" class="fab fa-twitter"></a>
+               <a href="#" class="fab fa-instagram"></a>
+               <a href="#" class="fab fa-linkedin"></a>
+            </div>
+            <h3>john deo</h3>
+         </div>
+
+      </div>
+
+      <div class="swiper-pagination"></div>
+
+   </div>
+
+</section>
+
+<!-- teachers section ends -->
+
+<!-- reviews section starts  -->
+
+<section class="reviews" id="reviews">
+
+   <h1 class="heading"> student's <span>reviews</span></h1>
+
+   <div class="swiper reviews-slider">
+
+      <div class="swiper-wrapper">
+
+         <div class="swiper-slide slide">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum necessitatibus atque fuga delectus numquam consequatur velit autem distinctio possimus culpa!</p>
+            <div class="user">
+               <img src="images/pic-1.png" alt="">
+               <div class="user-info">
+                  <h3>john deo</h3>
+                  <div class="stars">
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star-half-alt"></i>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="swiper-slide slide">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum necessitatibus atque fuga delectus numquam consequatur velit autem distinctio possimus culpa!</p>
+            <div class="user">
+               <img src="images/pic-2.png" alt="">
+               <div class="user-info">
+                  <h3>john deo</h3>
+                  <div class="stars">
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star-half-alt"></i>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="swiper-slide slide">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum necessitatibus atque fuga delectus numquam consequatur velit autem distinctio possimus culpa!</p>
+            <div class="user">
+               <img src="images/pic-3.png" alt="">
+               <div class="user-info">
+                  <h3>john deo</h3>
+                  <div class="stars">
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star-half-alt"></i>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="swiper-slide slide">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum necessitatibus atque fuga delectus numquam consequatur velit autem distinctio possimus culpa!</p>
+            <div class="user">
+               <img src="images/pic-4.png" alt="">
+               <div class="user-info">
+                  <h3>john deo</h3>
+                  <div class="stars">
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star-half-alt"></i>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="swiper-slide slide">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum necessitatibus atque fuga delectus numquam consequatur velit autem distinctio possimus culpa!</p>
+            <div class="user">
+               <img src="images/pic-5.png" alt="">
+               <div class="user-info">
+                  <h3>john deo</h3>
+                  <div class="stars">
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star-half-alt"></i>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="swiper-slide slide">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum necessitatibus atque fuga delectus numquam consequatur velit autem distinctio possimus culpa!</p>
+            <div class="user">
+               <img src="images/pic-6.png" alt="">
+               <div class="user-info">
+                  <h3>john deo</h3>
+                  <div class="stars">
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star-half-alt"></i>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+      </div>
+
+      <div class="swiper-pagination"></div>
+
+   </div>
+
+</section>
+
+<!-- reviews section ends -->
+
+<!-- contact section starts  -->
+
+<section class="contact" id="contact">
+
+   <h1 class="heading"><span>contact</span> us</h1>
+
+   <div class="row">
+
+      <div class="image">
+         <img src="images/contact-img.svg" alt="">
+      </div>
+
+      <form action="" method="post">
+         <span>your name</span>
+         <input type="text" required placeholder="enter your full name" maxlength="50" name="name" class="box">
+         <span>your email</span>
+         <input type="email" required placeholder="enter your valie email" maxlength="50" name="email" class="box">
+         <span>your number</span>
+         <input type="number" required placeholder="enter your valie number" max="9999999999" min="0" name="number" class="box" onkeypress="if(this.value.length == 10) return false;">
+         <span>select course</span>
+         <select name="couses" class="box" required>
+            <option value="" disabled selected>select the course --</option>
+            <option value="web developement">web developement</option>
+            <option value="science and biology">science and biology</option>
+            <option value="engineering">engineering</option>
+            <option value="digital marketing">digital marketing</option>
+            <option value="graphic design">graphic design</option>
+            <option value="teaching">teaching</option>
+            <option value="social studies">social studies</option>
+            <option value="data analysis">data analysis</option>
+            <option value="artificial intelligence">artificial intelligence</option>
+         </select>
+         <span>select gender</span>
+         <div class="radio">
+            <input type="radio" name="gender" value="male" id="male">
+            <label for="male">male</label>
+            <input type="radio" name="gender" value="female" id="female">
+            <label for="female">female</label>
+         </div>
+         <input type="submit" value="send message" class="btn" name="send">
+      </form>
+
+   </div>
+
+</section>
+
+<!-- contact section ends -->
+
+<!-- footer section starts  -->
+
+<footer class="footer">
+
+   <section>
+
+      <div class="share">
+         <a href="#" class="fab fa-facebook-f"></a>
+         <a href="#" class="fab fa-twitter"></a>
+         <a href="#" class="fab fa-linkedin"></a>
+         <a href="#" class="fab fa-instagram"></a>
+         <a href="#" class="fab fa-youtube"></a>
+      </div>
+
+      <div class="credit">&copy; Created By <span style="color :red;"> Shanmu </span>  | copyright @ 2022 by <span> Skillfin Learning</span> | all rights reserved!</div>
+
+   </section>
+
+</footer>
+
+<!-- footer section ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- swiper js link  -->
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+</body>
+</html>
